@@ -14,10 +14,10 @@ class HelloWorld(Resource):
 
 class Number2(Resource):
     def get(self,num):
-        return {'calc':num*10}
+        return {'calc':'100'}
 
 api.add_resource(HelloWorld,'/')
-api.add_resource(Number2,'/new/<int:num>')
+api.add_resource(Number2,'/new/')
 
 if __name__ == "__main__":
     app.run(debug=True)
