@@ -13,7 +13,7 @@ class HelloWorld(Resource):
         return {'sent': some_json}
 
 class Number2(Resource):
-    def get(self,num):
+    def get(self):
         return {'calc':'100'}
 
 api.add_resource(HelloWorld,'/')
