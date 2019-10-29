@@ -17,9 +17,27 @@ class HelloWorld(Resource):
 class Number2(Resource):
     def get(self,id):
         data = parser.parse_args()
-        return {"inseide" : id}
+        return {"inseide" : id}class TodoSimple(Resource):
+    def get(self, todo_id):
+        return {todo_id: todos[todo_id]}
 
-api.add_resource(HelloWorld,'/')
+    def put(self, todo_id):
+        todos[todo_id] = request.form['data']
+        return {todo_id: todos[todo_id]}
+
+
+
+class TodoSimple(Resource):
+    def get(self, todo_id):
+        return {todo_id: todos[todo_id]}
+
+    def put(self, todo_id):
+        todos[todo_id] = request.form['data']
+        return {todo_id: todos[todo_id]}
+
+api.add_resource(TodoSimple, '/<string:todo_id>')
+
+#api.add_resource(HelloWorld,'/')
 api.add_resource(Number2,'/new/<int:id>')
 
 if __name__ == "__main__":
