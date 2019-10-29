@@ -20,7 +20,7 @@ class Number2(Resource):
         return {"inseide" : id}
 
 api.add_resource(HelloWorld,'/')
-api.add_resource(Number2,'/new/<string:id>')
+api.add_resource(Number2,'/new/<int:id>')
 
 if __name__ == "__main__":
     app.run(debug=True)
