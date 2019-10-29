@@ -14,6 +14,15 @@ class HelloWorld(Resource):
         some_json = request.json
         return {'sent': some_json}
 
+
+class HelloWorld1(Resource):
+    def get(self):
+        return {'name':'Hello World'}
+
+    def post(self):
+        some_json = request.json
+        return {'sent': some_json}        
+
 class Number2(Resource):
     def get(self,id):
         # data = parser.parse_args()
@@ -33,7 +42,7 @@ class TodoSimple(Resource):
 api.add_resource(TodoSimple, '/<string:todo_id>')
 
 api.add_resource(HelloWorld,'/')
-api.add_resource(HelloWorld,'/hw')
+api.add_resource(HelloWorld1,'/hw')
 api.add_resource(Number2,'/new/<int:id>')
 
 if __name__ == "__main__":
