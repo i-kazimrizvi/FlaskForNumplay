@@ -16,7 +16,8 @@ class HelloWorld(Resource):
 
 class Number2(Resource):
     def get(self):
-        return request.args
+        data = parser.parse_args()
+        return {data['id'] : request.args}
 
 api.add_resource(HelloWorld,'/')
 api.add_resource(Number2,'/new')
