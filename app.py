@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from flask_restful import Resource, Api, reqparse
+from flask_restful import Resource, Api
 
 app = Flask(__name__)
 api = Api(app)
@@ -16,7 +16,7 @@ class HelloWorld(Resource):
 
 class Number2(Resource):
     def get(self,id):
-        data = parser.parse_args()
+        # data = parser.parse_args()
         return {"inseide" : id}
 
 
@@ -33,6 +33,7 @@ class TodoSimple(Resource):
 api.add_resource(TodoSimple, '/<string:todo_id>')
 
 api.add_resource(HelloWorld,'/')
+api.add_resource(HelloWorld,'/hw')
 api.add_resource(Number2,'/new/<int:id>')
 
 if __name__ == "__main__":
