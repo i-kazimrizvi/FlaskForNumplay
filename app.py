@@ -3,8 +3,8 @@ from flask_restful import Resource, Api, reqparse
 
 app = Flask(__name__)
 api = Api(app)
-parser = reqparse.RequestParser()
-parser.add_argument('id')
+
+todos = {}
 
 class HelloWorld(Resource):
     def get(self):
@@ -15,12 +15,12 @@ class HelloWorld(Resource):
         return {'sent': some_json}
 
 class Number2(Resource):
-    def get(self):
+    def get(self,id):
         data = parser.parse_args()
-        return {data['id'] : request.args}
+        return {"inseide" : id}
 
 api.add_resource(HelloWorld,'/')
-api.add_resource(Number2,'/new')
+api.add_resource(Number2,'/new/<string:id>')
 
 if __name__ == "__main__":
     app.run(debug=True)
