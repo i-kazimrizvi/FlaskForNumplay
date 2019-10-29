@@ -13,11 +13,11 @@ class HelloWorld(Resource):
         return {'sent': some_json}
 
 class Number2(Resource):
-    def get(self, num):
-        return {'calc':num*15}
+    def get(self):
+        return request.args
 
 api.add_resource(HelloWorld,'/')
-api.add_resource(Number2,'/new/<num>')
+api.add_resource(Number2,'/new')
 
 if __name__ == "__main__":
     app.run(debug=True)
