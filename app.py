@@ -32,7 +32,7 @@ class TodoSimple(Resource):
 
 api.add_resource(TodoSimple, '/<string:todo_id>')
 
-#api.add_resource(HelloWorld,'/')
+api.add_resource(HelloWorld,'/')
 api.add_resource(Number2,'/new/<int:id>')
 
 if __name__ == "__main__":
